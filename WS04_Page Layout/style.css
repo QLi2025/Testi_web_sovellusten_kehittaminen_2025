@@ -1,0 +1,120 @@
+/* Task 1: Flexbox Layout */
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #e08e8e;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.box {
+    background-color: rgb(30, 131, 164);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    width: 200px;
+}
+
+/* Task 2: Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 30px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.grid-item {
+    background-color: lightgreen;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Task 3: Media Queries */
+.responsive-box {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .responsive-box {
+        background-color: lightcoral;
+    }
+}
+
+@media (min-width: 601px) {
+    .responsive-box {
+        background-color: lightseagreen;
+    }
+}
+
+/* Task 4: Semantic Elements */
+.semantic-example {
+    font-family: Arial, sans-serif;
+    margin-bottom: 30px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.semantic-example header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.semantic-example nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.semantic-example nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.semantic-example nav a:hover {
+    text-decoration: underline;
+}
+
+.semantic-example section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.semantic-example footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* General styles */
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
