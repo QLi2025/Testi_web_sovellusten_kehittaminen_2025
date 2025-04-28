@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design Tasks</title>
+    <style>
+        /* Task 1: Responsive Layout */
+        .responsive-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .column {
+            flex: 1;
+            padding: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .column {
+                flex: 100%;
+            }
+        }
+
+        /* Task 2: Responsive Image */
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Task 3: Media Queries */
+        .media-query-box {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 600px) {
+            .media-query-box {
+                background-color: lightcoral;
+            }
+        }
+        
+        @media (min-width: 601px) {
+            .media-query-box {
+                background-color: lightblue;
+            }
+        }
+
+        /* Task 4: Responsive Navigation */
+        .responsive-nav .nav-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .responsive-nav .menu-toggle {
+            display: none; /* Hidden by default */
+        }
+
+        @media (max-width: 600px) {
+            .responsive-nav .nav-list {
+                display: none;
+            }
+        
+            .responsive-nav .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Task 1 -->
+    <div class="responsive-container">
+        <div class="column">Column 1</div>
+        <div class="column">Column 2</div>
+    </div>
+
+    <!-- Task 2 -->
+    <img src="path/to/image.jpg" alt="Responsive Image" class="responsive-image">
+
+    <!-- Task 3 -->
+    <div class="media-query-box">Resize the window to see the effect</div>
+
+    <!-- Task 4 -->
+    <nav class="responsive-nav">
+        <button class="menu-toggle">☰ Menu</button>
+        <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Task 5: Validation is done via browser tools -->
+</body>
+</html>
