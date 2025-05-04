@@ -3,95 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Design Tasks</title>
+    <title>Responsive Design Workshop</title>
     <style>
-        /* Task 1: Responsive Layout */
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Responsive Layout */
         .responsive-container {
             display: flex;
+            gap: 2rem;
+            padding: 2rem;
             flex-wrap: wrap;
         }
-        
+
         .column {
-            flex: 1;
-            padding: 10px;
+            flex: 1 1 300px;
+            min-height: 200px;
+            padding: 1.5rem;
+            background-color: #f0f0f0;
+            border-radius: 8px;
         }
-        
+
+        /* Responsive Image */
+        .image-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .responsive-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Media Query Box */
+        .media-query-box {
+            margin: 2rem;
+            padding: 2rem;
+            text-align: center;
+            background-color: lightblue;
+            transition: background-color 0.3s ease;
+            border-radius: 8px;
+        }
+
+        /* Responsive Navigation */
+        .responsive-nav {
+            background: #333;
+            padding: 1rem 2rem;
+            position: relative;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-list a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            background-color: #555;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Media Queries */
         @media (max-width: 600px) {
             .column {
-                flex: 100%;
+                flex-basis: 100%;
             }
-        }
 
-        /* Task 2: Responsive Image */
-        .responsive-image {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Task 3: Media Queries */
-        .media-query-box {
-            padding: 20px;
-            text-align: center;
-        }
-        
-        @media (max-width: 600px) {
             .media-query-box {
                 background-color: lightcoral;
             }
-        }
-        
-        @media (min-width: 601px) {
-            .media-query-box {
-                background-color: lightblue;
-            }
-        }
 
-        /* Task 4: Responsive Navigation */
-        .responsive-nav .nav-list {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .responsive-nav .menu-toggle {
-            display: none; /* Hidden by default */
-        }
-
-        @media (max-width: 600px) {
-            .responsive-nav .nav-list {
-                display: none;
-            }
-        
-            .responsive-nav .menu-toggle {
+            .menu-toggle {
                 display: block;
+            }
+
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #444;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-list.active {
+                display: flex;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Task 1 -->
+    <nav class="responsive-nav">
+        <button class="menu-toggle" aria-label="Toggle navigation">☰ Menu</button>
+        <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
     <div class="responsive-container">
         <div class="column">Column 1</div>
         <div class="column">Column 2</div>
     </div>
 
-    <!-- Task 2 -->
-    <img src="/WS05_Responsive Design/Images/myphoto1.JPG" alt="Responsive Image" class="responsive-image">
+    <div class="image-container">
+        <img src="../WS05_Responsive Design/Images/myphoto1.JPG" 
+             alt="Responsive image example" 
+             class="responsive-image">
+    </div>
 
-    <!-- Task 3 -->
-    <div class="media-query-box">Resize the window to see the effect</div>
+    <div class="media-query-box">
+        Resize the window to see background color changes!
+    </div>
 
-    <!-- Task 4 -->
-    <nav class="responsive-nav">
-        <button class="menu-toggle">☰ Menu</button>
-        <ul class="nav-list">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    <script>
+        // Mobile menu functionality
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            const navList = document.querySelector('.nav-list');
+            navList.classList.toggle('active');
+            
+            // ARIA accessibility
+            const isExpanded = navList.classList.contains('active');
+            document.querySelector('.menu-toggle').setAttribute('aria-expanded', isExpanded);
+        });
 
-    <!-- Task 5: Validation is done via browser tools -->
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            const nav = document.querySelector('.responsive-nav');
+            if (!nav.contains(event.target)) {
+                document.querySelector('.nav-list').classList.remove('active');
+                document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 </body>
 </html>
