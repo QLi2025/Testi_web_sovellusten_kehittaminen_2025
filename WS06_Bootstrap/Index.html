@@ -3,382 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quy Li's Personal Page</title>
-    <style>
-        /* Color Variables */
-        :root {
-            --primary-color: rgb(19, 0, 128);
-            --secondary-color: #4CAF50;
-            --accent-color: lightcoral;
-            --text-color: #333;
-            --light-gray: #f5f5f5;
-        }
-        
-        /* Base Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        
-        h1, h2, h3 {
-            color: var(--primary-color);
-        }
-        
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            color: rgb(10, 15, 16);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            margin-top: 30px;
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-        }
-        
-        p {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-        }
-        
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        a:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
-        }
-        
-        /* Task 1: Enhanced CSS Transitions */
-        .transition-button {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 15px 0;
-            font-size: 1em;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        .transition-button:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        /* Task 2: Enhanced CSS Animations */
-        .animation-container {
-            background-color: var(--light-gray);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 25px 0;
-        }
-        
-        .animation-box {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary-color);
-            position: relative;
-            animation: move 3s infinite alternate ease-in-out;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        @keyframes move {
-            0% {
-                left: 0;
-                background-color: var(--primary-color);
-                transform: scale(1);
-            }
-            50% {
-                background-color: var(--accent-color);
-                transform: scale(1.2);
-            }
-            100% {
-                left: calc(100% - 60px);
-                background-color: var(--secondary-color);
-                transform: scale(1);
-            }
-        }
-        
-        /* Task 3: Enhanced CSS Pseudo-classes */
-        .pseudo-list {
-            list-style-type: none;
-            padding: 0;
-            width: 100%;
-            max-width: 400px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .pseudo-list li {
-            padding: 12px 15px;
-            margin: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .pseudo-list li:nth-child(odd) {
-            background-color: var(--light-gray);
-        }
-        
-        .pseudo-list li:nth-child(even) {
-            background-color: white;
-        }
-        
-        .pseudo-list li:hover {
-            background-color: var(--accent-color);
-            color: white;
-            transform: translateX(5px);
-        }
-        
-        /* Task 4: Enhanced CSS Filters */
-        .image-container {
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .filter-image {
-            filter: grayscale(80%) contrast(110%);
-            transition: all 0.5s ease;
-            width: 300px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .filter-image:hover {
-            filter: grayscale(0%) contrast(100%);
-            transform: scale(1.02);
-        }
-        
-        /* Task 5: Enhanced CSS Pseudo-elements */
-        .quote {
-            position: relative;
-            padding: 30px 40px 30px 80px;
-            font-style: italic;
-            font-size: 1.3em;
-            color: #555;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            margin: 30px 0;
-            line-height: 1.8;
-        }
-        
-        .quote::before {
-            content: '“';
-            font-size: 80px;
-            position: absolute;
-            left: 20px;
-            top: 20px;
-            color: var(--light-gray);
-            font-family: Georgia, serif;
-        }
-        
-        .quote::after {
-            content: '”';
-            font-size: 80px;
-            position: absolute;
-            right: 20px;
-            bottom: -20px;
-            color: var(--light-gray);
-            font-family: Georgia, serif;
-        }
-        
-        /* Table Styles */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        tr:nth-child(even) {
-            background-color: var(--light-gray);
-        }
-        
-        tr:hover {
-            background-color: #e9e9e9;
-        }
-        
-        /* Form Styles */
-        form {
-            display: grid;
-            gap: 15px;
-            max-width: 500px;
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            margin: 30px 0;
-        }
-        
-        label {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
-        input, textarea {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1em;
-            transition: border 0.3s;
-        }
-        
-        input:focus, textarea:focus {
-            border-color: var(--primary-color);
-            outline: none;
-            box-shadow: 0 0 5px rgba(19, 0, 128, 0.2);
-        }
-        
-        input[type="submit"] {
-            background-color: var(--primary-color);
-            color: white;
-            cursor: pointer;
-            width: 160px;
-            font-weight: bold;
-            border: none;
-            transition: all 0.3s;
-        }
-        
-        input[type="submit"]:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .animation-box {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .quote {
-                padding: 20px 25px 20px 60px;
-                font-size: 1.1em;
-            }
-            
-            .quote::before, .quote::after {
-                font-size: 60px;
-            }
-        }
-    </style>
+    <title>Bootstrap Workshop</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1 style="color: rgb(10, 15, 16);">Welcome to Quy Li's Personal Page</h1>
-    <p>Hello! I'm an Information Technology student at Laurea passionate about creating user-friendly websites. 
-    I enjoy learning HTML, CSS, and JavaScript, and in my free time I like playing tennis and chess.</p>
-    
-    <div class="image-container">
-        <img src="./MyPhoto1.jpg" alt="Quy Li outdoor" class="filter-image"/>
+    <!-- Task 3: Responsive Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">Bootstrap Workshop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Task 5: Alert -->
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>Welcome!</strong> This is a complete Bootstrap demo page.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <!-- Task 1: Grid Layout -->
+        <h2 class="my-4">Responsive Grid System</h2>
+        <div class="row mb-5">
+            <div class="col-md-4 col-12 mb-3">
+                <div class="p-3 bg-light border rounded">
+                    <h3>Column 1</h3>
+                    <p>This column will stack on mobile devices.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-12 mb-3">
+                <div class="p-3 bg-light border rounded">
+                    <h3>Column 2</h3>
+                    <p>Resize your browser to see the responsive behavior.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-12 mb-3">
+                <div class="p-3 bg-light border rounded">
+                    <h3>Column 3</h3>
+                    <p>Three columns on desktop, one column on mobile.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 4: Cards -->
+        <h2 class="my-4">Card Components</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Sample Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Web Development</h5>
+                        <p class="card-text">Learn how to build responsive websites with Bootstrap.</p>
+                        <a href="#" class="btn btn-primary">Start Learning</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Sample Image">
+                    <div class="card-body">
+                        <h5 class="card-title">UI Design</h5>
+                        <p class="card-text">Create beautiful user interfaces with Bootstrap components.</p>
+                        <a href="#" class="btn btn-success">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Sample Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobile First</h5>
+                        <p class="card-text">Build mobile-friendly websites that work on all devices.</p>
+                        <a href="#" class="btn btn-warning">Try Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 2: Buttons -->
+        <h2 class="my-4">Button Styles</h2>
+        <div class="mb-5">
+            <button class="btn btn-primary me-2">Primary</button>
+            <button class="btn btn-secondary me-2">Secondary</button>
+            <button class="btn btn-success me-2">Success</button>
+            <button class="btn btn-danger me-2">Danger</button>
+            <button class="btn btn-warning me-2">Warning</button>
+            <button class="btn btn-info me-2">Info</button>
+            <button class="btn btn-light me-2">Light</button>
+            <button class="btn btn-dark me-2">Dark</button>
+        </div>
     </div>
 
-    <h2>My Hobbies (Ordered by Preference)</h2>
-    <ol>
-        <li>Playing competitive tennis</li>
-        <li>Studying and doing school's homework</li>
-        <li>Web development projects</li>
-        <li>Exploring new technologies</li>
-    </ol>
-    
-    <h2>Other Interests (Unordered List)</h2>
-    <ul class="pseudo-list">
-        <li>Photography</li>
-        <li>Following NBA sports online</li>
-        <li>Watching movies</li>
-        <li>Attending exhibitions</li>
-    </ul>
-    
-    <button class="transition-button">Click here to test</button>
-    
-    <div class="animation-container">
-        <div class="animation-box"></div>
-    </div>
-    
-    <blockquote class="quote">
-        "Welcome to study in Laurea"
-    </blockquote>
-    
-    <p>Check out my favorite school: 
-    <a href="https://www.laurea.fi" target="_blank" rel="noopener noreferrer">Visit Laurea UAS homepage</a></p>
-   
-    <div> 
-        <h2>My Current Courses</h2>
-        <table>
-            <tr>
-                <th>Course Code</th>
-                <th>Course Name</th>
-                <th>Credits</th>
-            </tr>
-            <tr>
-                <td>NC00CC04-3001</td>
-                <td>Web Development Fundamentals</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>HL00BY89-3034</td>
-                <td>Professional Communication in English</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>E9955-3009</td>
-                <td>Linux Operating System</td>
-                <td>5</td>
-            </tr>
-        </table>
-    </div>
-    
-    <h2>Contact Me</h2>
-    <form action="#" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-        
-        <input type="submit" value="Send Message">
-    </form>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
