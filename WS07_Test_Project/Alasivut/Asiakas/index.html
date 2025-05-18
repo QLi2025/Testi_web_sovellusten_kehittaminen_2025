@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register to become a customer of Nordic-Asia Consulting Ltd - Your partner in Asian procurement">
+    <title>Tule asiakkaaksi | Nordic-Asia Consulting Ltd</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .registration-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background-color: #f8f9fa;
+        }
+        .form-header {
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+        .form-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (same as existing site) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">Kumppanisi Aasian myyntiin ja/tai hankintoihin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="register.html">Become a Customer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Form -->
+    <div class="container registration-container">
+        <div class="form-header text-center">
+            <h1 class="mb-3">Become Our Customer</h1>
+            <p class="lead">Join Nordic-Asia Consulting Ltd and access our premium international trade and logistics services</p>
+        </div>
+
+        <form id="registrationForm" class="needs-validation" novalidate>
+            <!-- Company Information Section -->
+            <div class="form-section">
+                <h3 class="mb-4"><i class="bi bi-building"></i> Company Information</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="companyName" class="form-label required-field">Company Name</label>
+                        <input type="text" class="form-control" id="companyName" required>
+                        <div class="invalid-feedback">
+                            Please provide your company name.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="registrationNumber" class="form-label required-field">Business ID/Registration Number</label>
+                        <input type="text" class="form-control" id="registrationNumber" required>
+                        <div class="invalid-feedback">
+                            Please provide your business registration number.
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label for="companyAddress" class="form-label required-field">Company Address</label>
+                        <input type="text" class="form-control" id="companyAddress" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="postalCode" class="form-label required-field">Postal Code</label>
+                        <input type="text" class="form-control" id="postalCode" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="city" class="form-label required-field">City</label>
+                        <input type="text" class="form-control" id="city" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="country" class="form-label required-field">Country</label>
+                        <select class="form-select" id="country" required>
+                            <option value="" selected disabled>Select country</option>
+                            <option value="FI">Finland</option>
+                            <option value="SE">Sweden</option>
+                            <option value="NO">Norway</option>
+                            <option value="DK">Denmark</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Person Section -->
+            <div class="form-section">
+                <h3 class="mb-4"><i class="bi bi-person"></i> Contact Person</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label required-field">First Name</label>
+                        <input type="text" class="form-control" id="firstName" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label required-field">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label required-field">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label required-field">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="position" class="form-label">Position in Company</label>
+                        <input type="text" class="form-control" id="position">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Details Section -->
+            <div class="form-section">
+                <h3 class="mb-4"><i class="bi bi-briefcase"></i> Business Details</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="industry" class="form-label required-field">Industry</label>
+                        <select class="form-select" id="industry" required>
+                            <option value="" selected disabled>Select industry</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="retail">Retail</option>
+                            <option value="wholesale">Wholesale</option>
+                            <option value="logistics">Logistics</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="annualTurnover" class="form-label">Annual Turnover (€)</label>
+                        <select class="form-select" id="annualTurnover">
+                            <option value="" selected disabled>Select range</option>
+                            <option value="<1M">Less than 1 million</option>
+                            <option value="1-5M">1-5 million</option>
+                            <option value="5-10M">5-10 million</option>
+                            <option value=">10M">More than 10 million</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="businessNeeds" class="form-label required-field">Describe Your Business Needs</label>
+                        <textarea class="form-control" id="businessNeeds" rows="3" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label for="howFound" class="form-label">How Did You Hear About Us?</label>
+                        <select class="form-select" id="howFound">
+                            <option value="" selected disabled>Select option</option>
+                            <option value="search">Search Engine</option>
+                            <option value="referral">Business Referral</option>
+                            <option value="social">Social Media</option>
+                            <option value="event">Trade Event</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terms and Submission -->
+            <div class="form-section">
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                    <label class="form-check-label" for="termsCheck">
+                        I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a>
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree to the terms before submitting.
+                    </div>
+                </div>
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="marketingCheck">
+                    <label class="form-check-label" for="marketingCheck">
+                        I would like to receive marketing communications
+                    </label>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary btn-lg" type="submit">Submit Application</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Customer Registration</h6>
+                    <p>By registering as a customer, you agree to provide accurate and complete information about your company...</p>
+                    
+                    <h6>2. Service Agreement</h6>
+                    <p>Registration does not automatically guarantee service provision. Nordic-Asia Consulting Ltd reserves the right to...</p>
+                    
+                    <h6>3. Data Protection</h6>
+                    <p>We comply with GDPR regulations. Your data will be used solely for the purpose of providing our services...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Nordic-Asia Consulting Ltd</h5>
+                    <p>Specializing in distribution and trade solutions between Nordic countries and Asia.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="services.html" class="text-white">Services</a></li>
+                        <li><a href="register.html" class="text-white">Become a Customer</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>Email: info@nordic-asia.fi<br>
+                    Phone: +358 3 782 7268</p>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <small>&copy; 2023 Nordic-Asia Consulting Ltd. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Form Validation -->
+    <script>
+        (function () {
+            'use strict'
+            
+            // Fetch the form we want to apply custom Bootstrap validation styles to
+            var form = document.getElementById('registrationForm')
+            
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                
+                form.classList.add('was-validated')
+            }, false)
+        })()
+    </script>
+</body>
+</html>
