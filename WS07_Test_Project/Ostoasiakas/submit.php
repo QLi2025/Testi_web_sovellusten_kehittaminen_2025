@@ -1,10 +1,7 @@
 <?php
-// Tiedoston nimi
-$filename = 'registrations.csv';
+$filename = "registrations.csv";
 
-// Tarkista, että lomake on lähetetty POST:lla
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Kerää ja suojaa tiedot
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $data = [
         date("Y-m-d H:i:s"),
         $_POST['companyName'] ?? '',
@@ -25,17 +22,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         isset($_POST['marketingCheck']) ? 'Kyllä' : 'Ei',
     ];
 
-    // Avataan tai luodaan tiedosto ja kirjoitetaan rivin loppuun
-    $file = fopen($filename, 'a');
-
+    $file = fopen($filename, "a");
     if ($file) {
-        fputcsv($file, $data, ';');
+        fputcsv($file, $data, ';'); // Puolipiste CSV:ssä toimii hyvin Excelin kanssa
         fclose($file);
-        echo "Kiitos! Lomake on tallennettu.";
+        echo "<h2>Kiitos! Tietosi on tallennettu.</h2>";
     } else {
-        echo "Virhe: tiedostoa ei voitu avata.";
+        echo "<h2>Virhe: tiedostoa ei voitu avata.</h2>";
     }
 } else {
-    echo "Virheellinen pyyntö.";
+    echo "<h2>Virheellinen pyyntö.</h2>";
 }
 ?>
