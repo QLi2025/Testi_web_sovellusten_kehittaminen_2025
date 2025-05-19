@@ -43,13 +43,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="https://qli2025.github.io/Testi_web_sovellusten_kehittaminen_2025/WS07_Test_Project/index.html">Etusivu</a>
+            <a class="nav-link" href="#">Etusivu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://qli2025.github.io/Testi_web_sovellusten_kehittaminen_2025/WS07_Test_Project/index.html#services">Palvelut</a>
+            <a class="nav-link" href="#">Palvelut</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="https://qli2025.github.io/Testi_web_sovellusten_kehittaminen_2025/WS07_Test_Project/Ostoasiakas/index.html">Tule asiakkaaksi</a>
+            <a class="nav-link active" href="#">Tule asiakkaaksi</a>
           </li>
         </ul>
       </div>
@@ -62,36 +62,37 @@
       <p class="lead">Liity Nordic-Asia Consulting Oy:n asiakkaaksi ja hyödynnä kansainvälisen kaupan ja logistiikan asiantuntemuksemme.</p>
     </div>
 
-    <form id="registrationForm" class="needs-validation" novalidate>
+    <form id="registrationForm" class="needs-validation" action="submit.php" method="post" novalidate>
+
       <!-- Yritystiedot -->
       <div class="form-section">
         <h3 class="mb-4">Yrityksen tiedot</h3>
         <div class="row g-3">
           <div class="col-md-6">
             <label for="companyName" class="form-label required-field">Yrityksen nimi</label>
-            <input type="text" class="form-control" id="companyName" required />
+            <input type="text" class="form-control" id="companyName" name="companyName" required />
             <div class="invalid-feedback">Anna yrityksen nimi.</div>
           </div>
           <div class="col-md-6">
             <label for="registrationNumber" class="form-label required-field">Y-tunnus / rekisterinumero</label>
-            <input type="text" class="form-control" id="registrationNumber" required />
+            <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" required />
             <div class="invalid-feedback">Anna Y-tunnus tai rekisterinumero.</div>
           </div>
           <div class="col-12">
             <label for="companyAddress" class="form-label required-field">Osoite</label>
-            <input type="text" class="form-control" id="companyAddress" required />
+            <input type="text" class="form-control" id="companyAddress" name="companyAddress" required />
           </div>
           <div class="col-md-4">
             <label for="postalCode" class="form-label required-field">Postinumero</label>
-            <input type="text" class="form-control" id="postalCode" required />
+            <input type="text" class="form-control" id="postalCode" name="postalCode" required />
           </div>
           <div class="col-md-4">
             <label for="city" class="form-label required-field">Kaupunki</label>
-            <input type="text" class="form-control" id="city" required />
+            <input type="text" class="form-control" id="city" name="city" required />
           </div>
           <div class="col-md-4">
             <label for="country" class="form-label required-field">Maa</label>
-            <select class="form-select" id="country" required>
+            <select class="form-select" id="country" name="country" required>
               <option value="" selected disabled>Valitse maa</option>
               <option value="FI">Suomi</option>
               <option value="SE">Ruotsi</option>
@@ -109,24 +110,24 @@
         <div class="row g-3">
           <div class="col-md-6">
             <label for="firstName" class="form-label required-field">Etunimi</label>
-            <input type="text" class="form-control" id="firstName" required />
+            <input type="text" class="form-control" id="firstName" name="firstName" required />
           </div>
           <div class="col-md-6">
             <label for="lastName" class="form-label required-field">Sukunimi</label>
-            <input type="text" class="form-control" id="lastName" required />
+            <input type="text" class="form-control" id="lastName" name="lastName" required />
           </div>
           <div class="col-md-6">
             <label for="email" class="form-label required-field">Sähköposti</label>
-            <input type="email" class="form-control" id="email" required />
+            <input type="email" class="form-control" id="email" name="email" required />
             <div class="invalid-feedback">Anna kelvollinen sähköpostiosoite.</div>
           </div>
           <div class="col-md-6">
             <label for="phone" class="form-label required-field">Puhelinnumero</label>
-            <input type="tel" class="form-control" id="phone" required />
+            <input type="tel" class="form-control" id="phone" name="phone" required />
           </div>
           <div class="col-12">
             <label for="position" class="form-label">Asema yrityksessä</label>
-            <input type="text" class="form-control" id="position" />
+            <input type="text" class="form-control" id="position" name="position" />
           </div>
         </div>
       </div>
@@ -137,7 +138,7 @@
         <div class="row g-3">
           <div class="col-md-6">
             <label for="industry" class="form-label required-field">Toimiala</label>
-            <select class="form-select" id="industry" required>
+            <select class="form-select" id="industry" name="industry" required>
               <option value="" selected disabled>Valitse toimiala</option>
               <option value="manufacturing">Teollisuus</option>
               <option value="retail">Vähittäiskauppa</option>
@@ -148,7 +149,7 @@
           </div>
           <div class="col-md-6">
             <label for="annualTurnover" class="form-label">Vuotuinen liikevaihto (€)</label>
-            <select class="form-select" id="annualTurnover">
+            <select class="form-select" id="annualTurnover" name="annualTurnover">
               <option value="" selected disabled>Valitse arvio</option>
               <option value="<1M">Alle 1 miljoona</option>
               <option value="1-5M">1–5 miljoonaa</option>
@@ -158,11 +159,11 @@
           </div>
           <div class="col-12">
             <label for="businessNeeds" class="form-label required-field">Kuvaile tarpeitanne</label>
-            <textarea class="form-control" id="businessNeeds" rows="3" required></textarea>
+            <textarea class="form-control" id="businessNeeds" name="businessNeeds" rows="3" required></textarea>
           </div>
           <div class="col-12">
             <label for="howFound" class="form-label">Mistä kuulitte meistä?</label>
-            <select class="form-select" id="howFound">
+            <select class="form-select" id="howFound" name="howFound">
               <option value="" selected disabled>Valitse</option>
               <option value="search">Hakukone</option>
               <option value="referral">Suosittelu</option>
@@ -184,7 +185,7 @@
           <div class="invalid-feedback">Hyväksy ehdot ennen lähettämistä.</div>
         </div>
         <div class="form-check mb-4">
-          <input class="form-check-input" type="checkbox" id="marketingCheck" />
+          <input class="form-check-input" type="checkbox" id="marketingCheck" name="marketingCheck" />
           <label class="form-check-label" for="marketingCheck">
             Haluan vastaanottaa markkinointiviestejä
           </label>
@@ -196,7 +197,7 @@
     </form>
   </div>
 
-  <!-- Ehtojen modal -->
+  <!-- Modal käyttöehdoille -->
   <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -205,12 +206,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Sulje"></button>
         </div>
         <div class="modal-body">
-          <h6>1. Asiakasrekisteröinti</h6>
-          <p>Rekisteröitymällä hyväksyt, että annat oikeat ja ajantasaiset tiedot yrityksestäsi...</p>
-          <h6>2. Palvelusopimus</h6>
-          <p>Rekisteröityminen ei takaa palvelujen tarjoamista automaattisesti. Nordic-Asia Consulting Oy pidättää oikeuden...</p>
-          <h6>3. Tietosuoja</h6>
-          <p>Noudatamme GDPR-asetuksia. Tietojasi käytetään vain palveluidemme toteuttamiseen...</p>
+          <p>Rekisteröitymällä hyväksyt tietojen käsittelyn...</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button>
@@ -218,32 +214,6 @@
       </div>
     </div>
   </div>
-
-  <footer class="bg-dark text-white py-4 mt-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5>Nordic-Asia Consulting Oy</h5>
-          <p>Erikoistunut kaupan ja hankintaratkaisuihin Pohjoismaiden ja Aasian välillä.</p>
-        </div>
-        <div class="col-md-4">
-          <h5>Pikalinkit</h5>
-          <ul class="list-unstyled">
-            <li><a href="https://qli2025.github.io/Testi_web_sovellusten_kehittaminen_2025/WS07_Test_Project/index.html" class="text-white">Etusivu</a></li>
-            <li><a href="https://qli2025.github.io/Testi_web_sovellusten_kehittaminen_2025/WS07_Test_Project/index.html#services" class="text-white">Palvelut</a></li>
-            <li><a href="https://qli2025.github.io/Testi_web_sovellusten_kehittaminen_2025/WS07_Test_Project/Ostoasiakas/index.html" class="text-white">Tule asiakkaaksi</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h5>Yhteystiedot</h5>
-          <p>Sähköposti: info@nordic-asia.fi<br />Puhelin: +358 3 782 7268</p>
-        </div>
-      </div>
-      <div class="text-center mt-3">
-        <small>&copy; 2025 Nordic-Asia Consulting Oy. Kaikki oikeudet pidätetään.</small>
-      </div>
-    </div>
-  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -258,8 +228,6 @@
         form.classList.add('was-validated')
       }, false)
     })()
-    <form id="registrationForm" class="needs-validation" action="submit.php" method="post" novalidate>
-    <input type="text" class="form-control" id="companyName" name="companyName" required>
   </script>
 </body>
 </html>
