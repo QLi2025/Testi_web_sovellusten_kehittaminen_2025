@@ -1,36 +1,40 @@
 <?php
-$filename = "registrations.csv";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $data = [
-        date("Y-m-d H:i:s"),
-        $_POST['companyName'] ?? '',
-        $_POST['registrationNumber'] ?? '',
-        $_POST['companyAddress'] ?? '',
-        $_POST['postalCode'] ?? '',
-        $_POST['city'] ?? '',
-        $_POST['country'] ?? '',
-        $_POST['firstName'] ?? '',
-        $_POST['lastName'] ?? '',
-        $_POST['email'] ?? '',
-        $_POST['phone'] ?? '',
-        $_POST['position'] ?? '',
-        $_POST['industry'] ?? '',
-        $_POST['annualTurnover'] ?? '',
-        $_POST['businessNeeds'] ?? '',
-        $_POST['howFound'] ?? '',
-        isset($_POST['marketingCheck']) ? 'Kyllä' : 'Ei',
-    ];
+    // Capture form data
+    $companyName = $_POST['companyName'];
+    $registrationNumber = $_POST['registrationNumber'];
+    $companyAddress = $_POST['companyAddress'];
+    $postalCode = $_POST['postalCode'];
+    $city = $_POST['city'];
+    $country = $_POST['country'];
 
-    $file = fopen($filename, "a");
-    if ($file) {
-        fputcsv($file, $data, ';'); // Puolipiste CSV:ssä toimii hyvin Excelin kanssa
-        fclose($file);
-        echo "<h2>Kiitos! Tietosi on tallennettu.</h2>";
-    } else {
-        echo "<h2>Virhe: tiedostoa ei voitu avata.</h2>";
-    }
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $position = $_POST['position'];
+
+    $industry = $_POST['industry'];
+    $annualTurnover = $_POST['annualTurnover'];
+    $businessNeeds = $_POST['businessNeeds'];
+    $howFound = $_POST['howFound'];
+
+    $termsAccepted = isset($_POST['termsCheck']) ? 'Yes' : 'No';
+    $marketingAccepted = isset($_POST['marketingCheck']) ? 'Yes' : 'No';
+
+    // Save to file or database
+    $file = fopen("registrations.csv", "a");
+    fputcsv($file, [
+        $companyName, $registrationNumber, $companyAddress, $postalCode, $city, $country,
+        $firstName, $lastName, $email, $phone, $position,
+        $industry, $annualTurnover, $businessNeeds, $howFound,
+        $termsAccepted, $marketingAccepted
+    ]);
+    fclose($file);
+
+    echo "<h1>Thank you for registering!</h1><p>We’ve received your application.</p>";
 } else {
-    echo "<h2>Virheellinen pyyntö.</h2>";
+    header("Location: register.html");
+    exit();
 }
 ?>
