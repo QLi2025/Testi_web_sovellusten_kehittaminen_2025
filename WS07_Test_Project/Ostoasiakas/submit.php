@@ -1,40 +1,41 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Capture form data
-    $companyName = $_POST['companyName'];
-    $registrationNumber = $_POST['registrationNumber'];
-    $companyAddress = $_POST['companyAddress'];
-    $postalCode = $_POST['postalCode'];
-    $city = $_POST['city'];
-    $country = $_POST['country'];
+// Tiedoston nimi
+$filename = 'registrations.csv';
 
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $position = $_POST['position'];
+// Tarkista, että lomake on lähetetty POST:lla
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Kerää ja suojaa tiedot
+    $data = [
+        date("Y-m-d H:i:s"),
+        $_POST['companyName'] ?? '',
+        $_POST['registrationNumber'] ?? '',
+        $_POST['companyAddress'] ?? '',
+        $_POST['postalCode'] ?? '',
+        $_POST['city'] ?? '',
+        $_POST['country'] ?? '',
+        $_POST['firstName'] ?? '',
+        $_POST['lastName'] ?? '',
+        $_POST['email'] ?? '',
+        $_POST['phone'] ?? '',
+        $_POST['position'] ?? '',
+        $_POST['industry'] ?? '',
+        $_POST['annualTurnover'] ?? '',
+        $_POST['businessNeeds'] ?? '',
+        $_POST['howFound'] ?? '',
+        isset($_POST['marketingCheck']) ? 'Kyllä' : 'Ei',
+    ];
 
-    $industry = $_POST['industry'];
-    $annualTurnover = $_POST['annualTurnover'];
-    $businessNeeds = $_POST['businessNeeds'];
-    $howFound = $_POST['howFound'];
+    // Avataan tai luodaan tiedosto ja kirjoitetaan rivin loppuun
+    $file = fopen($filename, 'a');
 
-    $termsAccepted = isset($_POST['termsCheck']) ? 'Yes' : 'No';
-    $marketingAccepted = isset($_POST['marketingCheck']) ? 'Yes' : 'No';
-
-    // Save to file or database
-    $file = fopen("registrations.csv", "a");
-    fputcsv($file, [
-        $companyName, $registrationNumber, $companyAddress, $postalCode, $city, $country,
-        $firstName, $lastName, $email, $phone, $position,
-        $industry, $annualTurnover, $businessNeeds, $howFound,
-        $termsAccepted, $marketingAccepted
-    ]);
-    fclose($file);
-
-    echo "<h1>Thank you for registering!</h1><p>We’ve received your application.</p>";
+    if ($file) {
+        fputcsv($file, $data, ';');
+        fclose($file);
+        echo "Kiitos! Lomake on tallennettu.";
+    } else {
+        echo "Virhe: tiedostoa ei voitu avata.";
+    }
 } else {
-    header("Location: register.html");
-    exit();
+    echo "Virheellinen pyyntö.";
 }
 ?>
